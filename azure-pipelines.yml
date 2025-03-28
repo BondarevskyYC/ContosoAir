@@ -3,6 +3,13 @@ pool:
 trigger:
   - master
 steps:
+  - task: trivy@1
+    inputs:
+      version: 'latest'
+      path: '.'
+      type: 'filesystem'
+      cosignOutput: true
+      tableOutput: true
   - task: Npm@1
     inputs:
       command: 'custom'
@@ -12,13 +19,7 @@ steps:
   #    npm test
   #  displayName: 'Run unit tests'
   #  continueOnError: true
-  - task: trivy@1
-    inputs:
-      version: 'latest'
-      path: ''
-      type: 'filesystem'
-      cosignOutput: true
-      tableOutput: true
+ 
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'
     condition: succeededOrFailed()
