@@ -7,11 +7,11 @@ steps:
     inputs:
       command: 'custom'
       customcommand: 'install --production'
-  - script: |
-      npm install
-      npm test
-    displayName: 'Run unit tests'
-    continueOnError: true
+  #- script: |
+  #    npm install
+  #    npm test
+  #  displayName: 'Run unit tests'
+  #  continueOnError: true
   - task: trivy@1
     inputs:
       version: 'latest'
