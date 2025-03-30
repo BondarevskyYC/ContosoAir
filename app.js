@@ -33,4 +33,8 @@ app.use(favicon(__dirname + '/public/assets/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./src/routes'));
 
+// test secret scan
+const aws_key = "fasdfdasdfasfasf"
+const aws_secret = "fdsafasfsadfsadfasf"
+
 module.exports = app;
